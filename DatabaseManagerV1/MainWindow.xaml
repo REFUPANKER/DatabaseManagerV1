@@ -1,0 +1,56 @@
+﻿<Window x:Class="DatabaseManagerV1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseManagerV1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="560" Width="1000" Loaded="Window_Loaded" AllowsTransparency="True" Background="Transparent" WindowStyle="None" ResizeMode="NoResize">
+    <Border CornerRadius="8" BorderThickness="1" BorderBrush="White" Background="Black">
+        <DockPanel Margin="1">
+            <Border x:Name="TopBar" Background="Transparent" MouseDown="TopBar_MouseDown" MouseMove="TopBar_MouseMove" CornerRadius="8,8,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Border x:Name="exitButton" MouseDown="exitButton_MouseDown" CornerRadius="30" Background="Red" Margin="5,0,0,0" Height="15" Width="15" OverridesDefaultStyle="True"></Border>
+                    <Border x:Name="minimizeButton" MouseDown="minimizeButton_MouseDown" CornerRadius="30" Background="Orange" Margin="5,0,0,0" Height="15" Width="15" OverridesDefaultStyle="True"></Border>
+                    <Border x:Name="maximizeButton" CornerRadius="30" Background="Green" Margin="5,0,5,0" Height="15" Width="15" OverridesDefaultStyle="True"></Border>
+                    <Label Foreground="White" Content="Database Manager"></Label>
+                </StackPanel>
+            </Border>
+            <Separator DockPanel.Dock="Top" Background="White"></Separator>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="dg1" Background="#FF050505" HeadersVisibility="None" BorderBrush="#FFABADB3" Foreground="Black" CanUserAddRows="False" FontSize="20" Margin="10" BorderThickness="1"/>
+                <Grid Grid.Column="1" Background="#151515" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Grid VerticalAlignment="Top" Margin="20,0,20,0">
+                        <Label Content="Select Target Database" Foreground="White" Height="30" FontSize="15"></Label>
+                        <ComboBox HorizontalAlignment="Right" x:Name="targetDbBox" SelectedIndex="0" VerticalContentAlignment="Center" FontSize="15" MinWidth="200" Height="30" Width="165"/>
+                    </Grid>
+                    <TextBox x:Name="queryentry" BorderThickness="1" TextWrapping="NoWrap" AcceptsReturn="True"  VerticalScrollBarVisibility="Auto" Background="Black" Foreground="White" FontSize="15" Margin="10,35,10,47"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Button x:Name="startService" Click="startService_Click" FontSize="15" Content="Check Service" MinWidth="100" HorizontalAlignment="Center" Padding="10"></Button>
+                        <Button x:Name="runQuery" Click="runQuery_Click"  FontSize="15" Content="Run" HorizontalAlignment="Center" Padding="10" Margin="15,0,15,0" MinWidth="100" Background="#FF25C953"></Button>
+                        <Button x:Name="eQueriesBtn" Click="eQueriesBtn_Click" FontSize="15" Content="Executed Queries" HorizontalAlignment="Center" Padding="10" MinWidth="100"></Button>
+                    </StackPanel>
+                    <Border x:Name="eqPanel" CornerRadius="30,30,0,0" BorderThickness="2" BorderBrush="#454545" Width="400" Height="0" Background="#151515" HorizontalAlignment="Center"  VerticalAlignment="Bottom">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Cursor="Hand" Grid.Row="0" MouseLeftButtonDown="eqpgrid_MouseLeftButtonDown" Background="#00000000">
+                                <Border Background="#454545" Margin="5" Height="5" CornerRadius="2" Width="50"></Border>
+                            </Grid>
+                            <ListBox x:Name="executedQueriesList" Grid.Row="1" Margin="10" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                                
+                            </ListBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Border>
+</Window>
