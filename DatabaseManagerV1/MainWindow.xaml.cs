@@ -1,25 +1,12 @@
-﻿using DatabaseManagerV1.Helpers;
-using DatabaseManagerV1.Managers;
-using DatabaseManagerV1.Structures;
-using MySqlConnector;
+﻿using DatabaseManagerV1.Managers;
+using DatabaseManagerV1.Templates;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DatabaseManagerV1
 {
@@ -31,15 +18,6 @@ namespace DatabaseManagerV1
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
-
-		CoreHotel ch = new CoreHotel();
-		CoreCodeSharingApp ccodeSharingApp = new CoreCodeSharingApp();
-
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
-			targetDbBox.Items.Add(ch);
-			targetDbBox.Items.Add(ccodeSharingApp);
 		}
 
 		#region form ui actions
@@ -75,12 +53,27 @@ namespace DatabaseManagerV1
 		{
 			RunQueryBySelection();
 		}
+
+
+		List<ManagersTemplate> managersList = new List<ManagersTemplate>()
+		{
+			new CoreHotel(),
+			new CoreCodeSharingApp(),
+		};
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			foreach (var manager in managersList)
+			{
+				targetDbBox.Items.Add(manager);
+			}
+		}
+
 		private void RunQueryBySelection()
 		{
 			if (queryentry.Text.Replace(" ", "").Length > 0)
 			{
-				
-				if (executedQueriesList.Items.Count>0)
+				if (executedQueriesList.Items.Count > 0)
 				{
 					executedQueriesList.Items.Add(new Separator());
 				}
@@ -90,17 +83,7 @@ namespace DatabaseManagerV1
 				executedQueriesList.Items.Add(queryItem);
 
 				DataTable? dbt = null;
-
-				switch (targetDbBox.SelectedIndex)
-				{
-					case 0:
-						dbt = ch.RequestQuery(queryentry.Text) as DataTable;
-						break;
-					case 1:
-						dbt = ccodeSharingApp.RequestQuery(queryentry.Text) as DataTable;
-						break;
-				}
-
+				dbt = managersList[targetDbBox.SelectedIndex].RequestQuery(queryentry.Text) as DataTable;
 				dg1.ItemsSource = dbt?.AsDataView();
 			}
 			else
@@ -112,7 +95,7 @@ namespace DatabaseManagerV1
 		private void QueryItem_Selected(object sender, RoutedEventArgs e)
 		{
 			HideEqp();
-			if (MessageBox.Show("Load Query","Executed Queries",MessageBoxButton.YesNo,MessageBoxImage.Question)==MessageBoxResult.Yes)
+			if (MessageBox.Show("Load Query", "Executed Queries", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
 			{
 				queryentry.Text = ((ListBoxItem)sender).Content.ToString();
 			}
@@ -120,15 +103,7 @@ namespace DatabaseManagerV1
 
 		private void CheckSelectedDbServiceRunning()
 		{
-			switch (targetDbBox.SelectedIndex)
-			{
-				case 0:
-					MySqlServiceHelper.IsMySqlRunning(true);
-					break;
-				case 1:
-					ccodeSharingApp.serviceHelper.IsServiceRunning(true);
-					break;
-			}
+			managersList[targetDbBox.SelectedIndex].CheckService(true);
 		}
 
 		private void startService_Click(object sender, RoutedEventArgs e)

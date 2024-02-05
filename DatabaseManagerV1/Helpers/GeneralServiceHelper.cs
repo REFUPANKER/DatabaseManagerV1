@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 
 namespace DatabaseManagerV1.Helpers
 {
-	public class GeneralServiceHelper
+	public static class GeneralServiceHelper
 	{
-		private static string ServiceName = "";
-		public GeneralServiceHelper(string servicename)
-		{
-			ServiceName = servicename;
-		}
 		/// <summary>
 		/// Checks current status of specified service
 		/// sends stop or start requests by parameter <![CDATA[AskForStartStop]]>
@@ -23,7 +19,7 @@ namespace DatabaseManagerV1.Helpers
 		/// <item>false(service not exists or stopped)</item>
 		/// </list>
 		/// </returns>
-		public bool IsServiceRunning(bool AskForStartStop = false)
+		public static bool IsServiceRunning(string ServiceName, bool AskForStartStop = false)
 		{
 			bool result = false;
 			try
@@ -67,14 +63,14 @@ namespace DatabaseManagerV1.Helpers
 					{
 						if (MessageBox.Show($"{ServiceName} is runing\nWant to stop service ?", "Service Status", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 						{
-							StopService();
+							StopService(ServiceName);
 						}
 					}
 					else
 					{
 						if (MessageBox.Show($"{ServiceName} not runing\nWant to start service ?", "Service Status", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
 						{
-							StartService();
+							StartService(ServiceName);
 						}
 					}
 				}
@@ -83,7 +79,7 @@ namespace DatabaseManagerV1.Helpers
 			return result;
 		}
 
-		private void StartService()
+		private static void StartService(string ServiceName)
 		{
 			Process.Start(new ProcessStartInfo()
 			{
@@ -95,7 +91,7 @@ namespace DatabaseManagerV1.Helpers
 			});
 		}
 
-		private static void StopService()
+		private static void StopService(string ServiceName)
 		{
 			Process.Start(new ProcessStartInfo()
 			{

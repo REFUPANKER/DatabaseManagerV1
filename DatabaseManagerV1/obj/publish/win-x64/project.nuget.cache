@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "dBbqlWQtc4mM6vmw+HKKY6aC7TMHM0L2AK7D4Ms+ltso3VvtgY6T+pu3ZadXFN006DDpUUzresMn4fBUTXRo+w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Computer\\Documents\\Education\\YazilimMimarileri\\DatabaseManagerV1\\DatabaseManagerV1\\DatabaseManagerV1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\mysqlconnector\\2.3.3\\mysqlconnector.2.3.3.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.20\\microsoft.netcore.app.runtime.win-x64.6.0.20.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.20\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.20.nupkg.sha512",
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.20\\microsoft.aspnetcore.app.runtime.win-x64.6.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

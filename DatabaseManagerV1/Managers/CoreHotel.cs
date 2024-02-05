@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DatabaseManagerV1.Templates;
 using MySqlConnector;
+using System;
 using System.Data;
-using DatabaseManagerV1.Helpers;
 using System.Windows;
-using DatabaseManagerV1.Structures;
 
 namespace DatabaseManagerV1.Managers
 {
 	public class CoreHotel : ManagersTemplate
 	{
+		public override string ServiceName { get => "MySql80"; }
 		private MySqlConnection connection = new MySqlConnection(Pool.ConnectionStrings.Core_Hotel);
 
 		public override object? RequestQuery(string query, bool returns = false)
@@ -21,10 +16,7 @@ namespace DatabaseManagerV1.Managers
 			object? result = null;
 			try
 			{
-				if (MySqlServiceHelper.IsMySqlRunning() == false)
-				{
-					throw new Exception("Service is stopped or not existing");
-				}
+				if (!CheckService(false)) { return null; }
 				connection.Close();
 				connection.Open();
 				MySqlCommand command = new MySqlCommand(query, connection);

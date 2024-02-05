@@ -1,0 +1,8 @@
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\DatabaseManagerV1.pdb
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\D3DCompiler_47_cor3.dll
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\PenImc_cor3.dll
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\PresentationNative_cor3.dll
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\vcruntime140_cor3.dll
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\wpfgfx_cor3.dll
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\sni.dll
+C:\Users\Computer\Documents\Education\YazilimMimarileri\DatabaseManagerV1\DatabaseManagerV1\bin\Release\net6.0-windows\win-x86\app.publish\DatabaseManagerV1.exe

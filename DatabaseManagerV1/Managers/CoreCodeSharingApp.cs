@@ -1,26 +1,22 @@
-﻿using DatabaseManagerV1.Helpers;
-using DatabaseManagerV1.Structures;
+﻿using DatabaseManagerV1.Templates;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 
 namespace DatabaseManagerV1.Managers
 {
 	public class CoreCodeSharingApp : ManagersTemplate
 	{
+		public override string ServiceName => "MSSQLSERVER";
 		SqlConnection con = new SqlConnection(Pool.ConnectionStrings.Core_CodeSharingApp);
-		public GeneralServiceHelper serviceHelper = new GeneralServiceHelper("MSSQLSERVER");
+
 		public override object? RequestQuery(string query, bool returns = false)
 		{
 			object? result = null;
 			try
 			{
+				if (!CheckService(false)) { return null; }
 				query = query.Replace("\"", "'");
 				con.Close();
 				con.Open();
@@ -47,7 +43,7 @@ namespace DatabaseManagerV1.Managers
 		}
 		public override string ToString()
 		{
-			return base.ToString()+"\nDatabase\t:MS SQL SERVER";
+			return base.ToString() + "\nDatabase\t:MS SQL SERVER";
 		}
 	}
 }
